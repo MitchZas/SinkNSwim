@@ -20,23 +20,23 @@ public class BubbleMovement : MonoBehaviour
     [SerializeField] float downwardCooldown = .5f;
     float cooldownTimer = 0f;
    
-    public ClamMovement clamMovementScript;
+    //public ClamMovement clamMovementScript;
     public BubbleMovement bubbleMovementScript;
 
-    public GameObject pearl;
+    //public GameObject pearl;
     public SpriteRenderer bubbleRenderer;
 
     public CinemachineCamera cam;
-    public Transform clamTarget;
+    //public Transform clamTarget;
 
-    public TMP_Text mergeText;
-    public TMP_Text swimUpText;
-    public TMP_Text swimDownText;
-    public TMP_Text arrowText;
-    public TMP_Text LeftRightText;
+    //public TMP_Text mergeText;
+    //public TMP_Text swimUpText;
+    //public TMP_Text swimDownText;
+    //public TMP_Text arrowText;
+    //public TMP_Text LeftRightText;
 
-    public AudioSource bubblePopAudio;
-    public AudioSource clamJumpAudio;
+    //public AudioSource bubblePopAudio;
+    //public AudioSource clamJumpAudio;
 
     public Vector3 startingPosition;
 
@@ -45,7 +45,7 @@ public class BubbleMovement : MonoBehaviour
     {
         gameObject.tag = "Player";
         GetComponent<Rigidbody2D>();
-        clamMovementScript.enabled = false;
+        //clamMovementScript.enabled = false;
         rb.gravityScale = 0f;
         canMoveHorizontal = false;
     }
@@ -61,7 +61,7 @@ public class BubbleMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && cooldownTimer <=0)
         {
            DownwardForce();
-            canMoveHorizontal = true;
+           canMoveHorizontal = true;
         }
            
         if (canMoveHorizontal)
@@ -74,22 +74,22 @@ public class BubbleMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Clam")
         {
-            Debug.Log("Collision Detected");
-            Destroy(gameObject);
-            clamMovementScript.enabled = true;
-            bubbleMovementScript.enabled = false;
-            cam.Follow = clamTarget;
-            mergeText.enabled = false;
-            swimUpText.enabled = true;
-            swimDownText.enabled = false;
-            LeftRightText.enabled = false;
-            pearl.SetActive(true);
+            //Debug.Log("Collision Detected");
+            //Destroy(gameObject);
+            //clamMovementScript.enabled = true;
+            //bubbleMovementScript.enabled = false;
+            //cam.Follow = clamTarget;
+            //mergeText.enabled = false;
+            //swimUpText.enabled = true;
+            //swimDownText.enabled = false;
+            //LeftRightText.enabled = false;
+            //pearl.SetActive(true);
         }
 
         if (other.gameObject.tag == "Pop")
         {
             //Object.FindFirstObjectByType<AudioManager>().Play("BubblePop");
-            bubblePopAudio.Play();
+            //bubblePopAudio.Play();
             bubbleRenderer.enabled = false;
             StartCoroutine(BubblePop());
         }
@@ -104,7 +104,7 @@ public class BubbleMovement : MonoBehaviour
 
     void DownwardForce()
     {
-        clamJumpAudio.Play();
+        //clamJumpAudio.Play();
         rb.linearVelocity = Vector2.down * downStrength;
         rb.gravityScale = -1f;
 
@@ -115,6 +115,5 @@ public class BubbleMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
-        
     }
 }
