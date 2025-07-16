@@ -10,6 +10,8 @@ using UnityEngine.InputSystem;
 
 public class BubbleMovement : MonoBehaviour
 {
+    private PlayerInput playerInput;
+    
     public Rigidbody2D rb;
     public float downStrength = 5f;
     public float horizontalStrength = 5f;
@@ -41,10 +43,16 @@ public class BubbleMovement : MonoBehaviour
     public Vector3 startingPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+        playerInput = new PlayerInput();
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     void Start()
     {
         gameObject.tag = "Player";
-        GetComponent<Rigidbody2D>();
+        //GetComponent<Rigidbody2D>();
         //clamMovementScript.enabled = false;
         rb.gravityScale = 0f;
         canMoveHorizontal = false;
@@ -116,4 +124,10 @@ public class BubbleMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
     }
+
+    //private void OnMove(InputValue inputValue)
+    //{
+    //    float horizontalInput = Input.GetAxis("Horizontal");
+    //    rb.linearVelocity = inputValue.Get<Vector2>() * speed;
+    //}
 }
