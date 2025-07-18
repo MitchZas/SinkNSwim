@@ -17,6 +17,10 @@ public class BubbleMovement : MonoBehaviour
     public float horizontalStrength = 5f;
     public float speed = 5f;
 
+    public float jumpStartTime;
+    private float jumpTime;
+    private bool isJumping;
+
     bool canMoveHorizontal;
 
     [SerializeField] float downwardCooldown = .5f;
@@ -66,10 +70,10 @@ public class BubbleMovement : MonoBehaviour
             cooldownTimer -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && cooldownTimer <=0)
+        if (Input.GetKeyDown(KeyCode.Space) && cooldownTimer <= 0)
         {
-           DownwardForce();
-           canMoveHorizontal = true;
+            DownwardForce();
+            canMoveHorizontal = true;
         }
            
         if (canMoveHorizontal)
@@ -113,10 +117,12 @@ public class BubbleMovement : MonoBehaviour
     void DownwardForce()
     {
         //clamJumpAudio.Play();
+       
         rb.linearVelocity = Vector2.down * downStrength;
         rb.gravityScale = -1f;
 
         cooldownTimer = downwardCooldown;
+
     }
 
     void HorizontalMovement()
