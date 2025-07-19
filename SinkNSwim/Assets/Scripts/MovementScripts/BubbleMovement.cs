@@ -29,6 +29,9 @@ public class BubbleMovement : MonoBehaviour
     //public ClamMovement clamMovementScript;
     public BubbleMovement bubbleMovementScript;
 
+    private Vector2 moveAmount;
+    private bool jumpAmount;
+
     //public GameObject pearl;
     public SpriteRenderer bubbleRenderer;
 
@@ -130,10 +133,4 @@ public class BubbleMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
     }
-
-    //private void OnMove(InputValue inputValue)
-    //{
-    //    float horizontalInput = Input.GetAxis("Horizontal");
-    //    rb.linearVelocity = inputValue.Get<Vector2>() * speed;
-    //}
 }
