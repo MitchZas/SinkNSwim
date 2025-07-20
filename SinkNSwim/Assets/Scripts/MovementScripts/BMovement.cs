@@ -23,6 +23,7 @@ public class BMovement : MonoBehaviour
     [Header("Other Scripts")]
     [SerializeField] GameManager gameManager;
 
+    #region UNITY ESSENTIALS
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,6 +39,7 @@ public class BMovement : MonoBehaviour
             HoriontalMovement();
         }
     }
+    #endregion
 
     #region PLAYER CONTROLS
     public void Move(InputAction.CallbackContext context)

@@ -35,6 +35,12 @@ public class CMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //if (clammovementscript.enabled == true)
+        //{
+        //    clamplayerinput.enabled = true;
+        //    rb.gravityscale = 3f;
+        //}
+
         HoriontalMovement();
     }
 
@@ -55,11 +61,9 @@ public class CMovement : MonoBehaviour
             ApplyUpwardForce(.5f);
         }
     }
-
-
     void HoriontalMovement()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x , rb.linearVelocity.y * upStrength);
+        rb.linearVelocity = new Vector2(horizontal * horizontalStrength, rb.linearVelocity.y);
     }
 
     void ApplyUpwardForce(float distance)
