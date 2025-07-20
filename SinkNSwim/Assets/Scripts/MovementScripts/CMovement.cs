@@ -9,27 +9,33 @@ public class CMovement : MonoBehaviour
 {
     [Header("Clam Components")]
     [SerializeField] SpriteRenderer clamSprite;
-    private Rigidbody2D rb;
-    private InputSystem_Actions playerControls;
-
-    [Header("Movement Settings")]
-    [SerializeField] private float upStrength = 20f;
-    [SerializeField] BMovement bubbleMovementScript;
     [SerializeField] CMovement clamMovementScript;
+    private InputSystem_Actions clamControls;
+    private Rigidbody2D rb;
+
+    [Header("Horiztonal Movement Settings")]
+    [SerializeField] BMovement bubbleMovementScript;
     [SerializeField] private float horizontalStrength = 5f;
     private float horizontal;
     private bool canMoveHorizontal;
 
+    [Header("Upward Movement Settings")]
+    [SerializeField] private float upStrength = 20f;
+    [SerializeField] PlayerInput clamPlayerInput;
+    private float distance;
+
     void Start()
     {
         clamMovementScript.enabled = false;
-        GetComponent<Rigidbody2D>();
+        clamPlayerInput.enabled = false;
+        rb = GetComponent<Rigidbody2D>();
+        clamControls = new InputSystem_Actions();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        HoriontalMovement();
     }
 
     #region PLAYER CONTROLS

@@ -7,8 +7,8 @@ using UnityEngine.Rendering;
 public class BMovement : MonoBehaviour
 {
     [Header("Bubble Components")]
+    private InputSystem_Actions bubbleControls;
     private Rigidbody2D rb;
-    private InputSystem_Actions playerControls;
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
@@ -20,10 +20,13 @@ public class BMovement : MonoBehaviour
     [SerializeField] private float downStrength = 5f;
     private float distance;
 
+    [Header("Other Scripts")]
+    [SerializeField] GameManager gameManager;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerControls = new InputSystem_Actions();
+        bubbleControls = new InputSystem_Actions();
         rb.gravityScale = 0f;
         canMoveHorizontal = false;
     }
@@ -66,4 +69,12 @@ public class BMovement : MonoBehaviour
         rb.gravityScale = -1f;
     }
     #endregion
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Clam")
+        {
+            gameManager.SwitchPlayer();
+        }
+    }
 }
