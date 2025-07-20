@@ -22,16 +22,22 @@ public class BMovement : MonoBehaviour
     private float distance;
     private float horizontal;
 
+    private bool canMoveHorizontal;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerControls = new InputSystem_Actions();
         rb.gravityScale = 0f;
+        canMoveHorizontal = false;
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontal * moveSpeed,rb.linearVelocity.y);
+        if (canMoveHorizontal)
+        {
+            HoriontalMovement();
+        }
     }
 
     #region PLAYER CONTROLS
@@ -51,12 +57,17 @@ public class BMovement : MonoBehaviour
             ApplyDownwardForce(.5f);
         }
     }
-    #endregion
-
-
+    
+    void HoriontalMovement()
+    {
+        rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
+    }
+   
     void ApplyDownwardForce(float distance)
     {
+        canMoveHorizontal = true;
         rb.linearVelocity = Vector2.down * (downStrength * distance);
         rb.gravityScale = -1f;
     }
+    #endregion
 }
