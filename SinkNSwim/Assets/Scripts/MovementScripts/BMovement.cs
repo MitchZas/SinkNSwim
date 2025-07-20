@@ -13,16 +13,12 @@ public class BMovement : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float horizontalStrength = 5f;
- 
+    private float horizontal;
+    private bool canMoveHorizontal;
 
     [Header("Downward Force Parameters")]
     [SerializeField] private float downStrength = 5f;
-    
-    
     private float distance;
-    private float horizontal;
-
-    private bool canMoveHorizontal;
 
     void Start()
     {
@@ -60,7 +56,7 @@ public class BMovement : MonoBehaviour
     
     void HoriontalMovement()
     {
-        rb.linearVelocity = new Vector2(horizontal * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(horizontal * horizontalStrength, rb.linearVelocity.y);
     }
    
     void ApplyDownwardForce(float distance)
