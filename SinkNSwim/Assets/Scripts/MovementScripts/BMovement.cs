@@ -66,6 +66,7 @@ public class BMovement : MonoBehaviour
         else if (context.canceled)
         {
             ApplyDownwardForce(.5f);
+            StartCoroutine(JumpCooldownTimer());
         }
     }
     

@@ -24,29 +24,31 @@ public class CMovement : MonoBehaviour
     [SerializeField] PlayerInput clamPlayerInput;
     private float distance;
 
+    [Header("Jump Cooldown")]
+    [SerializeField] private float jumpCooldown = 1f;
+    private bool canJump = true;
+
+    #region UNITY ESSENTIALS    
     void Start()
     {
         clamMovementScript.enabled = false;
         clamPlayerInput.enabled = false;
         rb = GetComponent<Rigidbody2D>();
         clamControls = new InputSystem_Actions();
-    }
-
-    void Update()
-    {
-        HoriontalMovement();
+        canMoveHorizontal = false;
     }
 
     void FixedUpdate()
     {
-        //if (clammovementscript.enabled == true)
-        //{
-        //    clamplayerinput.enabled = true;
-        //    rb.gravityscale = 3f;
-        //}
+        if (clamMovementScript.enabled == true)
+        {
+            clamPlayerInput.enabled = true;
+            rb.gravityScale = 3f;
+        }
 
-        //HoriontalMovement();
+        HoriontalMovement();
     }
+    #endregion
 
     #region PLAYER CONTROLS
     public void Move(InputAction.CallbackContext context)
@@ -56,13 +58,20 @@ public class CMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        if (!canJump)
+        {
+            return;
+        }
+
         if (context.performed)
         {
             ApplyUpwardForce(1);
+            StartCoroutine(JumpCooldownTimer());
         }
         else if (context.canceled)
         {
             ApplyUpwardForce(.5f);
+            //StartCoroutine(JumpCooldownTimer());
         }
     }
     void HoriontalMovement()
@@ -74,6 +83,13 @@ public class CMovement : MonoBehaviour
     {
         canMoveHorizontal = true;
         rb.linearVelocity = Vector2.up * (upStrength * distance);
+    }
+    
+    private IEnumerator JumpCooldownTimer()
+    {
+        canJump = false;
+        yield return new WaitForSeconds(jumpCooldown);
+        canJump = true;
     }
     #endregion
 }

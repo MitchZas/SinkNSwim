@@ -676,8 +676,9 @@ MonoBehaviour:
   clamMovementScript: {fileID: 736311735}
   bubbleMovementScript: {fileID: 1786826390}
   horizontalStrength: 5
-  upStrength: 2
+  upStrength: 20
   clamPlayerInput: {fileID: 736311738}
+  jumpCooldown: 1
 --- !u!58 &736311736
 CircleCollider2D:
   m_ObjectHideFlags: 0
