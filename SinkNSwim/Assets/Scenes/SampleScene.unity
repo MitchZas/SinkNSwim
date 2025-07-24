@@ -1601,6 +1601,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1792921388}
+    - target: {fileID: 5853408355642941033, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: jumpCooldown
+      value: 0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

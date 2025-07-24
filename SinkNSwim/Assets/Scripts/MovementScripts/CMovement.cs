@@ -32,7 +32,11 @@ public class CMovement : MonoBehaviour
         clamControls = new InputSystem_Actions();
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        HoriontalMovement();
+    }
+
     void FixedUpdate()
     {
         //if (clammovementscript.enabled == true)
@@ -41,7 +45,7 @@ public class CMovement : MonoBehaviour
         //    rb.gravityscale = 3f;
         //}
 
-        HoriontalMovement();
+        //HoriontalMovement();
     }
 
     #region PLAYER CONTROLS

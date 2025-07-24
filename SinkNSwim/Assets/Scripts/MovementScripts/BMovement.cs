@@ -23,6 +23,10 @@ public class BMovement : MonoBehaviour
     [Header("Other Scripts")]
     [SerializeField] GameManager gameManager;
 
+    [Header("Jump Cooldown")]
+    [SerializeField] private float jumpCooldown = 1f;
+    private bool canJump = true;
+
     #region UNITY ESSENTIALS
     void Start()
     {
@@ -49,9 +53,15 @@ public class BMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        if (!canJump)
+        {
+            return;
+        }
+        
         if (context.performed)
         {
             ApplyDownwardForce(1);
+            StartCoroutine(JumpCooldownTimer());
         }
         else if (context.canceled)
         {
@@ -69,6 +79,13 @@ public class BMovement : MonoBehaviour
         canMoveHorizontal = true;
         rb.linearVelocity = Vector2.down * (downStrength * distance);
         rb.gravityScale = -1f;
+    }
+
+    private IEnumerator JumpCooldownTimer()
+    {
+        canJump = false;
+        yield return new WaitForSeconds(jumpCooldown);
+        canJump = true;
     }
     #endregion
 

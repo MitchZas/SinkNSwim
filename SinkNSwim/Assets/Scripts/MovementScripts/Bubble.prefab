@@ -328,3 +328,4 @@ MonoBehaviour:
   horizontalStrength: 5
   downStrength: 10
   gameManager: {fileID: 0}
+  jumpCooldown: 1
