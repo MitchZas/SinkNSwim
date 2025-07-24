@@ -71,7 +71,7 @@ public class CMovement : MonoBehaviour
         else if (context.canceled)
         {
             ApplyUpwardForce(.5f);
-            //StartCoroutine(JumpCooldownTimer());
+            StartCoroutine(JumpCooldownTimer());
         }
     }
     void HoriontalMovement()
@@ -83,13 +83,13 @@ public class CMovement : MonoBehaviour
     {
         canMoveHorizontal = true;
         rb.linearVelocity = Vector2.up * (upStrength * distance);
+        Debug.Log(distance);
     }
-    
+    #endregion
     private IEnumerator JumpCooldownTimer()
     {
         canJump = false;
         yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
     }
-    #endregion
 }
