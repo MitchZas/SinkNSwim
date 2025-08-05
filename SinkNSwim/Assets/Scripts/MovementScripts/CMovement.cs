@@ -70,7 +70,7 @@ public class CMovement : MonoBehaviour
         }
         else if (context.canceled)
         {
-            ApplyUpwardForce(.5f);
+            ApplyUpwardForce(.25f);
             StartCoroutine(JumpCooldownTimer());
         }
     }

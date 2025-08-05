@@ -36,7 +36,7 @@ public class BMovement : MonoBehaviour
         canMoveHorizontal = false;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (canMoveHorizontal)
         {
@@ -65,7 +65,7 @@ public class BMovement : MonoBehaviour
         }
         else if (context.canceled)
         {
-            ApplyDownwardForce(.5f);
+            ApplyDownwardForce(.25f);
             StartCoroutine(JumpCooldownTimer());
         }
     }
@@ -80,6 +80,7 @@ public class BMovement : MonoBehaviour
         canMoveHorizontal = true;
         rb.linearVelocity = Vector2.down * (downStrength * distance);
         rb.gravityScale = -1f;
+        Debug.Log(distance);
     }
 
     private IEnumerator JumpCooldownTimer()
