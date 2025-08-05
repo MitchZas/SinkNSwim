@@ -19,6 +19,8 @@ public class BMovement : MonoBehaviour
     [Header("Downward Force Parameters")]
     [SerializeField] private float downStrength = 5f;
     private float distance;
+    private float jumpHoldTime = 0f;
+    private float maxHoldTime = 1f;
 
     [Header("Other Scripts")]
     [SerializeField] GameManager gameManager;
@@ -28,10 +30,15 @@ public class BMovement : MonoBehaviour
     private bool canJump = true;
 
     #region UNITY ESSENTIALS
-    void Start()
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         bubbleControls = new InputSystem_Actions();
+    }
+
+    void Start()
+    {
         rb.gravityScale = 0f;
         canMoveHorizontal = false;
     }
@@ -40,7 +47,7 @@ public class BMovement : MonoBehaviour
     {
         if (canMoveHorizontal)
         {
-            HoriontalMovement();
+            HorizontalMovement();
         }
     }
     #endregion
@@ -70,7 +77,7 @@ public class BMovement : MonoBehaviour
         }
     }
     
-    void HoriontalMovement()
+    void HorizontalMovement()
     {
         rb.linearVelocity = new Vector2(horizontal * horizontalStrength, rb.linearVelocity.y);
     }
@@ -93,7 +100,7 @@ public class BMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Clam")
+        if (other.gameObject.CompareTag("Clam"))
         {
             gameManager.SwitchPlayer();
         }
