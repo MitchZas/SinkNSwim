@@ -29,7 +29,7 @@
                     "id": "0f663250-90f5-4760-b3ca-a02587554545",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold,Press",
+                    "interactions": "Hold(duration=0.5),Tap",
                     "initialStateCheck": false
                 },
                 {
@@ -48,6 +48,24 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump_Tap",
+                    "type": "Button",
+                    "id": "8e2c5dda-5157-4c96-ab1a-bab67d4c80b0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Tap(pressPoint=0.1)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump_Hold",
+                    "type": "Button",
+                    "id": "f3f31820-f305-4538-9133-168ee8eea486",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.3,pressPoint=0.3)",
                     "initialStateCheck": false
                 }
             ],
@@ -225,6 +243,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79920a79-8336-4be6-99da-41956109e5df",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump_Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e60a11a8-f4c2-4013-bf77-b13e87138377",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump_Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

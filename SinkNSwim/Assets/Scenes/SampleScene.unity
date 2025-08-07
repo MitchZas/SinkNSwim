@@ -1598,6 +1598,86 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubble
       objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionId
+      value: 8e2c5dda-5157-4c96-ab1a-bab67d4c80b0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_ActionId
+      value: f3f31820-f305-4538-9133-168ee8eea486
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
+      value: 'Bubble/Jump_Tap[/Keyboard/space]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_ActionName
+      value: 'Bubble/Jump_Hold[/Keyboard/space]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1786826390}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1786826390}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpTap
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JumpHold
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_ActionEvents.Array.data[21].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5853408355642941033, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
       propertyPath: gameManager
       value: 

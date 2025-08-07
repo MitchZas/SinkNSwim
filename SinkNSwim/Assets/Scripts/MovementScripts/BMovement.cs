@@ -58,25 +58,38 @@ public class BMovement : MonoBehaviour
         horizontal = context.ReadValue<Vector2>().x;
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    public void JumpTap(InputAction.CallbackContext context)
     {
-        if (!canJump)
-        {
-            return;
-        }
-        
-        if (context.performed)
-        {
-            ApplyDownwardForce(1);
-            StartCoroutine(JumpCooldownTimer());
-        }
-        else if (context.canceled)
-        {
-            ApplyDownwardForce(.25f);
-            StartCoroutine(JumpCooldownTimer());
-        }
+        if (!canJump || !context.performed) return;
+
+        ApplyDownwardForce(0.5f); // tap = small force
+        StartCoroutine(JumpCooldownTimer());
     }
-    
+
+    public void JumpHold(InputAction.CallbackContext context)
+    {
+        if (!canJump || !context.performed) return;
+
+        ApplyDownwardForce(1f); // hold = big force
+        StartCoroutine(JumpCooldownTimer());
+    }
+
+    //public void Jump(InputAction.CallbackContext context)
+    //{
+    //    if (!canJump) return;
+
+    //    if (context.interaction is UnityEngine.InputSystem.Interactions.TapInteraction && context.performed)
+    //    {
+    //        ApplyDownwardForce(1);
+    //        StartCoroutine(JumpCooldownTimer());
+    //    }
+    //    else if (context.interaction is UnityEngine.InputSystem.Interactions.HoldInteraction && context.performed)
+    //    {
+    //        ApplyDownwardForce(.25f);
+    //        StartCoroutine(JumpCooldownTimer());
+    //    }
+    //}
+
     void HorizontalMovement()
     {
         rb.linearVelocity = new Vector2(horizontal * horizontalStrength, rb.linearVelocity.y);
