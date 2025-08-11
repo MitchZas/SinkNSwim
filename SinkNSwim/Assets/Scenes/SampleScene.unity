@@ -678,7 +678,7 @@ MonoBehaviour:
   horizontalStrength: 5
   upStrength: 20
   clamPlayerInput: {fileID: 736311738}
-  jumpCooldown: 0.75
+  jumpCooldown: 0.3
 --- !u!58 &736311736
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -788,19 +788,7 @@ MonoBehaviour:
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 736311735}
-        m_TargetAssemblyTypeName: CMovement, Assembly-CSharp
-        m_MethodName: Jump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: f1ba0d36-48eb-4cd5-b651-1c94a6531f70
     m_ActionName: 'Player/Jump[/Keyboard/space]'
   - m_PersistentCalls:
@@ -871,6 +859,46 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 81513625-a11f-4874-b3f9-e0acbd1a4f36
     m_ActionName: 'Bubble/Next[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8e2c5dda-5157-4c96-ab1a-bab67d4c80b0
+    m_ActionName: 'Bubble/Jump_Tap[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f3f31820-f305-4538-9133-168ee8eea486
+    m_ActionName: 'Bubble/Jump_Hold[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 736311735}
+        m_TargetAssemblyTypeName: CMovement, Assembly-CSharp
+        m_MethodName: JumpTap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 171dcee0-4c11-4462-b789-00304b374d2e
+    m_ActionName: 'Clam/JumpTap[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 736311735}
+        m_TargetAssemblyTypeName: CMovement, Assembly-CSharp
+        m_MethodName: JumpHold
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f97b09a3-284c-423e-b342-3fb5e286f68a
+    m_ActionName: 'Clam/JumpHold[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Clam
@@ -1683,8 +1711,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1792921388}
     - target: {fileID: 5853408355642941033, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: downStrength
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853408355642941033, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
       propertyPath: jumpCooldown
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

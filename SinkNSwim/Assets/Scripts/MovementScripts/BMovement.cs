@@ -74,22 +74,6 @@ public class BMovement : MonoBehaviour
         StartCoroutine(JumpCooldownTimer());
     }
 
-    //public void Jump(InputAction.CallbackContext context)
-    //{
-    //    if (!canJump) return;
-
-    //    if (context.interaction is UnityEngine.InputSystem.Interactions.TapInteraction && context.performed)
-    //    {
-    //        ApplyDownwardForce(1);
-    //        StartCoroutine(JumpCooldownTimer());
-    //    }
-    //    else if (context.interaction is UnityEngine.InputSystem.Interactions.HoldInteraction && context.performed)
-    //    {
-    //        ApplyDownwardForce(.25f);
-    //        StartCoroutine(JumpCooldownTimer());
-    //    }
-    //}
-
     void HorizontalMovement()
     {
         rb.linearVelocity = new Vector2(horizontal * horizontalStrength, rb.linearVelocity.y);

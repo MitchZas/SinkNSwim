@@ -78,7 +78,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""id"": ""8e2c5dda-5157-4c96-ab1a-bab67d4c80b0"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Tap(pressPoint=0.1)"",
+                    ""interactions"": ""Tap(duration=0.2,pressPoint=0.1)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -340,6 +340,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JumpTap"",
+                    ""type"": ""Button"",
+                    ""id"": ""171dcee0-4c11-4462-b789-00304b374d2e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Tap(pressPoint=0.1)"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JumpHold"",
+                    ""type"": ""Button"",
+                    ""id"": ""f97b09a3-284c-423e-b342-3fb5e286f68a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.3,pressPoint=0.3)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -472,6 +490,50 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04153860-656c-42e6-a9ee-6b620bcb8c34"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""JumpTap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eaae9856-7d9e-4532-a63c-c37f500b1358"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""JumpTap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8cda3a26-2b75-49f1-b69e-1f8046296a57"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""JumpHold"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1114a1b9-de17-40c2-9228-455961b95eef"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""JumpHold"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1117,6 +1179,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Clam_Jump = m_Clam.FindAction("Jump", throwIfNotFound: true);
         m_Clam_Previous = m_Clam.FindAction("Previous", throwIfNotFound: true);
         m_Clam_Next = m_Clam.FindAction("Next", throwIfNotFound: true);
+        m_Clam_JumpTap = m_Clam.FindAction("JumpTap", throwIfNotFound: true);
+        m_Clam_JumpHold = m_Clam.FindAction("JumpHold", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1296,6 +1360,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Clam_Jump;
     private readonly InputAction m_Clam_Previous;
     private readonly InputAction m_Clam_Next;
+    private readonly InputAction m_Clam_JumpTap;
+    private readonly InputAction m_Clam_JumpHold;
     public struct ClamActions
     {
         private @InputSystem_Actions m_Wrapper;
@@ -1305,6 +1371,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Clam_Jump;
         public InputAction @Previous => m_Wrapper.m_Clam_Previous;
         public InputAction @Next => m_Wrapper.m_Clam_Next;
+        public InputAction @JumpTap => m_Wrapper.m_Clam_JumpTap;
+        public InputAction @JumpHold => m_Wrapper.m_Clam_JumpHold;
         public InputActionMap Get() { return m_Wrapper.m_Clam; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1329,6 +1397,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Next.started += instance.OnNext;
             @Next.performed += instance.OnNext;
             @Next.canceled += instance.OnNext;
+            @JumpTap.started += instance.OnJumpTap;
+            @JumpTap.performed += instance.OnJumpTap;
+            @JumpTap.canceled += instance.OnJumpTap;
+            @JumpHold.started += instance.OnJumpHold;
+            @JumpHold.performed += instance.OnJumpHold;
+            @JumpHold.canceled += instance.OnJumpHold;
         }
 
         private void UnregisterCallbacks(IClamActions instance)
@@ -1348,6 +1422,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Next.started -= instance.OnNext;
             @Next.performed -= instance.OnNext;
             @Next.canceled -= instance.OnNext;
+            @JumpTap.started -= instance.OnJumpTap;
+            @JumpTap.performed -= instance.OnJumpTap;
+            @JumpTap.canceled -= instance.OnJumpTap;
+            @JumpHold.started -= instance.OnJumpHold;
+            @JumpHold.performed -= instance.OnJumpHold;
+            @JumpHold.canceled -= instance.OnJumpHold;
         }
 
         public void RemoveCallbacks(IClamActions instance)
@@ -1545,6 +1625,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnPrevious(InputAction.CallbackContext context);
         void OnNext(InputAction.CallbackContext context);
+        void OnJumpTap(InputAction.CallbackContext context);
+        void OnJumpHold(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

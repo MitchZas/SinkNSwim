@@ -56,24 +56,40 @@ public class CMovement : MonoBehaviour
         horizontal = context.ReadValue<Vector2>().x;
     }
 
-    public void Jump(InputAction.CallbackContext context)
+    public void JumpTap(InputAction.CallbackContext context)
     {
-        if (!canJump)
-        {
-            return;
-        }
+        if (!canJump || !context.performed) return;
 
-        if (context.performed)
-        {
-            ApplyUpwardForce(1);
-            StartCoroutine(JumpCooldownTimer());
-        }
-        else if (context.canceled)
-        {
-            ApplyUpwardForce(.25f);
-            StartCoroutine(JumpCooldownTimer());
-        }
+        ApplyUpwardForce(0.5f); // tap = small force
+        StartCoroutine(JumpCooldownTimer());
     }
+
+    public void JumpHold(InputAction.CallbackContext context)
+    {
+        if (!canJump || !context.performed) return;
+
+        ApplyUpwardForce(1f); // hold = big force
+        StartCoroutine(JumpCooldownTimer());
+    }
+
+    //public void Jump(InputAction.CallbackContext context)
+    //{
+    //    if (!canJump)
+    //    {
+    //        return;
+    //    }
+
+    //    if (context.performed)
+    //    {
+    //        ApplyUpwardForce(1);
+    //        StartCoroutine(JumpCooldownTimer());
+    //    }
+    //    else if (context.canceled)
+    //    {
+    //        ApplyUpwardForce(.25f);
+    //        StartCoroutine(JumpCooldownTimer());
+    //    }
+    //}
     void HoriontalMovement()
     {
         rb.linearVelocity = new Vector2(horizontal * horizontalStrength, rb.linearVelocity.y);
