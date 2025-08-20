@@ -326,6 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   horizontalStrength: 5
+  isAlive: 0
   downStrength: 10
   gameManager: {fileID: 0}
   jumpCooldown: 1

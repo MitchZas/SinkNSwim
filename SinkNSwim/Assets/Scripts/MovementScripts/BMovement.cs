@@ -15,6 +15,7 @@ public class BMovement : MonoBehaviour
     [SerializeField] private float horizontalStrength = 5f;
     private float horizontal;
     private bool canMoveHorizontal;
+    public bool isAlive;
 
     [Header("Downward Force Parameters")]
     [SerializeField] private float downStrength = 5f;
@@ -35,6 +36,7 @@ public class BMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         bubbleControls = new InputSystem_Actions();
+        isAlive = true;
     }
 
     void Start()
@@ -99,6 +101,7 @@ public class BMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Clam"))
         {
+            isAlive = false;
             gameManager.SwitchPlayer();
         }
     }
