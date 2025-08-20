@@ -17,6 +17,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] CinemachineCamera cam;
     [SerializeField] Transform clamTarget;
 
+    
+
+    #region UNITY ESSENTIALS
+    private void Awake()
+    {
+        
+    }
+    #endregion
+
     #region GameState
     public void PlayGame()
     {
@@ -48,4 +57,6 @@ public class GameManager : MonoBehaviour
         cam.Follow = clamTarget;
         // Enable Pearl 
     }
+
+
 }
