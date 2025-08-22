@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6038540804be2e44a8cd4e2172ed87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectableCanvas: {fileID: 0}
+  collectableCanvas: {fileID: 534427341}
 --- !u!114 &422041544
 MonoBehaviour:
   m_ObjectHideFlags: 0
