@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] Canvas timerTextCanvas;
     [SerializeField] float remainingTime = 30f;
+    [SerializeField] GameObject Pearl;
   
     private void Awake()
     {
@@ -16,12 +17,12 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        //if (bubbleMovementScript.isAlive == false)
-        //{
-        //    StartTimer();
-        //}
+       if (Pearl = null)
+        {
+            StartTimer();
+        }
     }
-    void StartTimer()
+   public void StartTimer()
     {
         timerTextCanvas.enabled = true;
         

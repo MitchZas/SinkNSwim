@@ -7,6 +7,7 @@ TagManager:
   - Pop
   - Clam
   - Collect
+  - Pearl
   layers:
   - Default
   - TransparentFX
