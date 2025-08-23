@@ -4,35 +4,33 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using static UnityEditor.Searcher.SearcherWindow.Alignment;
+using Unity.VisualScripting;
 
 public class CMovement : MonoBehaviour
 {
     [Header("Clam Components")]
     [SerializeField] SpriteRenderer clamSprite;
-    [SerializeField] CMovement clamMovementScript;
     private InputSystem_Actions clamControls;
     private Rigidbody2D rb;
 
     [Header("Horiztonal Movement Settings")]
-    [SerializeField] BMovement bubbleMovementScript;
     [SerializeField] private float horizontalStrength = 5f;
     private float horizontal;
     private bool canMoveHorizontal;
 
     [Header("Upward Movement Settings")]
     [SerializeField] private float upStrength = 20f;
-    [SerializeField] PlayerInput clamPlayerInput;
+    //[SerializeField] PlayerInput clamPlayerInput;
     private float distance;
 
     [Header("Jump Cooldown")]
     [SerializeField] private float jumpCooldown = 1f;
     private bool canJump = true;
+    private float nextJumpTime = 0f;
 
     #region UNITY ESSENTIALS    
     void Start()
     {
-        clamMovementScript.enabled = false;
-        clamPlayerInput.enabled = false;
         rb = GetComponent<Rigidbody2D>();
         clamControls = new InputSystem_Actions();
         canMoveHorizontal = false;
@@ -40,12 +38,7 @@ public class CMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (clamMovementScript.enabled == true)
-        {
-            clamPlayerInput.enabled = true;
-            rb.gravityScale = 3f;
-        }
-
+        rb.gravityScale = 3f;
         HoriontalMovement();
     }
     #endregion
@@ -56,40 +49,23 @@ public class CMovement : MonoBehaviour
         horizontal = context.ReadValue<Vector2>().x;
     }
 
-    public void JumpTap(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext context)
     {
-        if (!canJump || !context.performed) return;
+        if (context.performed)
+        {
+            if (Time.time < nextJumpTime) return;
 
-        ApplyUpwardForce(0.5f); // tap = small force
-        StartCoroutine(JumpCooldownTimer());
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, upStrength);
+
+            nextJumpTime = Time.time + jumpCooldown;
+            return;
+        }
+        if (context.canceled)
+        {
+            if (rb.linearVelocity.y > 0f)
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+        }
     }
-
-    public void JumpHold(InputAction.CallbackContext context)
-    {
-        if (!canJump || !context.performed) return;
-
-        ApplyUpwardForce(1f); // hold = big force
-        StartCoroutine(JumpCooldownTimer());
-    }
-
-    //public void Jump(InputAction.CallbackContext context)
-    //{
-    //    if (!canJump)
-    //    {
-    //        return;
-    //    }
-
-    //    if (context.performed)
-    //    {
-    //        ApplyUpwardForce(1);
-    //        StartCoroutine(JumpCooldownTimer());
-    //    }
-    //    else if (context.canceled)
-    //    {
-    //        ApplyUpwardForce(.25f);
-    //        StartCoroutine(JumpCooldownTimer());
-    //    }
-    //}
     void HoriontalMovement()
     {
         rb.linearVelocity = new Vector2(horizontal * horizontalStrength, rb.linearVelocity.y);
@@ -101,11 +77,12 @@ public class CMovement : MonoBehaviour
         rb.linearVelocity = Vector2.up * (upStrength * distance);
         Debug.Log(distance);
     }
-    #endregion
     private IEnumerator JumpCooldownTimer()
     {
-        canJump = false;
-        yield return new WaitForSeconds(jumpCooldown);
-        canJump = true;
+        canJump = false; // stop jumps
+        yield return new WaitForSeconds(jumpCooldown); // wait X seconds
+        canJump = true;  // allow jumping again
     }
+
+    #endregion
 }

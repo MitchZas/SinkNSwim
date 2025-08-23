@@ -537,7 +537,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 4.113225, y: -8.94376, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -928,12 +928,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clamSprite: {fileID: 736311733}
-  clamMovementScript: {fileID: 736311735}
-  bubbleMovementScript: {fileID: 1786826390}
   horizontalStrength: 5
   upStrength: 20
-  clamPlayerInput: {fileID: 736311738}
-  jumpCooldown: 0.3
+  jumpCooldown: 0.4
 --- !u!58 &736311736
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -995,7 +992,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &736311738
 MonoBehaviour:
@@ -1043,7 +1040,19 @@ MonoBehaviour:
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 736311735}
+        m_TargetAssemblyTypeName: CMovement, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: f1ba0d36-48eb-4cd5-b651-1c94a6531f70
     m_ActionName: 'Player/Jump[/Keyboard/space]'
   - m_PersistentCalls:
@@ -1469,7 +1478,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1786826385}
+    TrackingTarget: {fileID: 736311734}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -1501,7 +1510,7 @@ Transform:
   m_GameObject: {fileID: 1224811028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 5.8639984, y: -12.24, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1977,11 +1986,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3583663223837660967, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
   m_PrefabInstance: {fileID: 4628811324066314951}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1786826385 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3267712516450335062, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
-  m_PrefabInstance: {fileID: 4628811324066314951}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1786826390 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5853408355642941033, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
@@ -2438,6 +2442,10 @@ PrefabInstance:
     - target: {fileID: 3583663223837660967, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
       propertyPath: m_Name
       value: Bubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583663223837660967, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3798914730328091962, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
       propertyPath: m_ActionEvents.Array.size
