@@ -83,6 +83,5 @@ public class CMovement : MonoBehaviour
         yield return new WaitForSeconds(jumpCooldown); // wait X seconds
         canJump = true;  // allow jumping again
     }
-
     #endregion
 }

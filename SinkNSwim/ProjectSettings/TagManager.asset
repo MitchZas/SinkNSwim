@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pop
   - Clam
+  - Collect
   layers:
   - Default
   - TransparentFX
