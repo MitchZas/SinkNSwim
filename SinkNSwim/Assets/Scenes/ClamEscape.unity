@@ -928,11 +928,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clamSprite: {fileID: 736311733}
-  clamMovementScript: {fileID: 736311735}
-  bubbleMovementScript: {fileID: 1786826390}
   horizontalStrength: 5
   upStrength: 20
-  clamPlayerInput: {fileID: 736311738}
   jumpCooldown: 0.3
 --- !u!58 &736311736
 CircleCollider2D:
@@ -1987,7 +1984,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5853408355642941033, guid: 8d4b8b880dfbf904e99ea002ab682563, type: 3}
   m_PrefabInstance: {fileID: 4628811324066314951}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786826383}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6532e95c845a5c43bf60e87ee9a51fb, type: 3}
@@ -2037,7 +2034,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonClickAudio: {fileID: 0}
-  bubbleMovementScript: {fileID: 1786826390}
   clamMovementScript: {fileID: 736311735}
   bubble: {fileID: 1786826383}
   clam: {fileID: 1786826383}
@@ -2073,7 +2069,6 @@ MonoBehaviour:
   timerText: {fileID: 2101345331}
   timerTextCanvas: {fileID: 2075217023}
   remainingTime: 30
-  bubbleMovementScript: {fileID: 1786826390}
 --- !u!1 &2075217020
 GameObject:
   m_ObjectHideFlags: 0
