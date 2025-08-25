@@ -8,8 +8,8 @@ public class Timer : MonoBehaviour
     [Header("Timer Components")]
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] Canvas timerTextCanvas;
-    [SerializeField] float remainingTime = 30f;
-    [SerializeField] GameObject Pearl;
+    [SerializeField] float remainingTime = 30;
+    [SerializeField] PearlState pearlScrpt;
   
     private void Awake()
     {
@@ -17,12 +17,14 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-       if (Pearl = null)
+        if (pearlScrpt.isDestroyed == true)
         {
             StartTimer();
+            TimerColorChange();
+            HandGrab();
         }
     }
-   public void StartTimer()
+    public void StartTimer()
     {
         timerTextCanvas.enabled = true;
         
@@ -38,6 +40,36 @@ public class Timer : MonoBehaviour
         int minutes = Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);
 
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        timerText.text = string.Format("{00:00}:{1:00}", minutes, seconds);
+        //
+
+        Debug.Log(remainingTime);
+    }
+
+    public void TimerColorChange()
+    {
+        int displaySeconds = Mathf.FloorToInt(remainingTime % 60);
+
+        if (displaySeconds > 10 && displaySeconds < 16)
+        {
+            timerText.color = Color.yellow;
+        }
+        else if (displaySeconds >= 0 && displaySeconds <= 10) 
+        {
+            timerText.color = Color.red;
+        }
+        else
+        {
+            timerText.color = Color.white;
+        }
+    }
+
+    public void HandGrab()
+    {
+        if (remainingTime == 0)
+        {
+            Debug.Log("Hands come into tank");
+        }
     }
 }

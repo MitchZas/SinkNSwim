@@ -391,7 +391,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6198003, y: -9, z: -5}
+  m_LocalPosition: {x: 2.4506657, y: -9, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1501,7 +1501,7 @@ Transform:
   m_GameObject: {fileID: 1189554432}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.2, y: -12.71, z: 0}
+  m_LocalPosition: {x: 11.08, y: -12.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1522,6 +1522,7 @@ MonoBehaviour:
   Player: {fileID: 736311732}
   Pearl: {fileID: 1189554432}
   timerScript: {fileID: 1792921390}
+  isDestroyed: 0
 --- !u!1 &1224811028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1645,7 @@ Transform:
   m_GameObject: {fileID: 1224811028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6198003, y: -9, z: -5}
+  m_LocalPosition: {x: 2.4506657, y: -9, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2267,8 +2268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 2101345331}
   timerTextCanvas: {fileID: 2075217023}
-  remainingTime: 30
-  Pearl: {fileID: 0}
+  remainingTime: 10
+  pearlScrpt: {fileID: 1189554437}
 --- !u!1 &2075217020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,7 +2504,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0:00
+  m_text: 00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
