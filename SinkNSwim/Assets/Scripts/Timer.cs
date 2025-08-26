@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        if (pearlScrpt.isDestroyed == true)
+        if (pearlScrpt.isHeld == true)
         {
             StartTimer();
             TimerColorChange();

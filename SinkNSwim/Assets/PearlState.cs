@@ -4,16 +4,18 @@ public class PearlState : MonoBehaviour
 {
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Pearl;
+    [SerializeField] GameObject PearlPlaceholder;
     [SerializeField] Timer timerScript;
-    public bool isDestroyed;
+    public bool isHeld;
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (Player)
         {
             //timerScript.StartTimer();
-            Destroy(Pearl);
-            isDestroyed = true;
+            //Destroy(Pearl);
+            isHeld = true;
+            Pearl.transform.position = PearlPlaceholder.transform.position;
         }
     }
 }
