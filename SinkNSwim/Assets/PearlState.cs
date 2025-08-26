@@ -15,6 +15,13 @@ public class PearlState : MonoBehaviour
             //timerScript.StartTimer();
             //Destroy(Pearl);
             isHeld = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (isHeld)
+        {
             Pearl.transform.position = PearlPlaceholder.transform.position;
         }
     }

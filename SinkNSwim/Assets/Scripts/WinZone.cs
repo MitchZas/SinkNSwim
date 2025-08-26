@@ -6,20 +6,15 @@ using System;
 public class WinZone : MonoBehaviour
 {
     [SerializeField] LevelLoader levelLoaderScript;
-    [SerializeField] GameObject pearl;
+    [SerializeField] GameObject Pearl;
     [SerializeField] Timer timerScript;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Clam")
+        if (other.gameObject.CompareTag("Pearl"))
         {
+            Debug.Log(other.gameObject.name);
             levelLoaderScript.LoadNextLevel();
-            pearl.SetActive(false);
-            // Add Score
+            //Pearl.SetActive(false);
         }
-    }
-
-    void CalculatScore()
-    {
-       //Switch statement
     }
 }

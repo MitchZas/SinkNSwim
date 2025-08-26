@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public Animator transition;
+    //public Animator transition;
 
     public float transitionTime = 1f;
     
@@ -21,7 +21,7 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        transition.SetTrigger("Start");
+        //transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
     }
