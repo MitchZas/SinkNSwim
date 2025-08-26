@@ -69,8 +69,16 @@ public class CMovement : MonoBehaviour
     void HoriontalMovement()
     {
         rb.linearVelocity = new Vector2(horizontal * horizontalStrength, rb.linearVelocity.y);
-    }
 
+        if (horizontal > 0.01f)
+        {
+            clamSprite.flipX = false;
+        }
+        else if (horizontal < -0.01f)
+        {
+            clamSprite.flipX = true;
+        }
+    }
     void ApplyUpwardForce(float distance)
     {
         canMoveHorizontal = true;
