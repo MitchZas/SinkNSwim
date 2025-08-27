@@ -28,6 +28,11 @@ public class CMovement : MonoBehaviour
     private bool canJump = true;
     private float nextJumpTime = 0f;
 
+    [Header("Ground Check")]
+    public Vector2 boxSize;
+    public float castDistance;
+    public LayerMask groundLayer;
+
     #region UNITY ESSENTIALS    
     void Start()
     {
@@ -39,7 +44,37 @@ public class CMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.gravityScale = 3f;
-        HoriontalMovement();
+        
+        if (canMoveHorizontal)
+        {
+            HoriontalMovement();
+        }
+
+        if(isGrounded())
+        {
+            canMoveHorizontal = false;
+        }
+    }
+    #endregion
+
+    #region GROUND CHECK
+    public bool isGrounded()
+    {
+        if(Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
+        {
+            Debug.Log("Ground hit");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Ground missed");
+            return false;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position -transform.up * castDistance, boxSize);
     }
     #endregion
 
@@ -51,6 +86,8 @@ public class CMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        canMoveHorizontal = true;
+
         if (context.performed)
         {
             if (Time.time < nextJumpTime) return;
@@ -67,7 +104,7 @@ public class CMovement : MonoBehaviour
         }
     }
     void HoriontalMovement()
-    {
+    {        
         rb.linearVelocity = new Vector2(horizontal * horizontalStrength, rb.linearVelocity.y);
 
         if (horizontal > 0.01f)
