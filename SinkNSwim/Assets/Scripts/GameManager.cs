@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     
     [Header("Gameplay Info")]
     [SerializeField] CMovement clamMovementScript;
-    [SerializeField] GameObject bubble;
     [SerializeField] GameObject clam;
     [SerializeField] CinemachineCamera cam;
     [SerializeField] Transform clamTarget;
