@@ -49,24 +49,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Jump_Tap",
-                    "type": "Button",
-                    "id": "8e2c5dda-5157-4c96-ab1a-bab67d4c80b0",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "Tap(duration=0.2,pressPoint=0.1)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Jump_Hold",
-                    "type": "Button",
-                    "id": "f3f31820-f305-4538-9133-168ee8eea486",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "Hold(duration=0.3,pressPoint=0.3)",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -243,72 +225,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "79920a79-8336-4be6-99da-41956109e5df",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump_Tap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "adbb7c3d-fba4-4b2a-ae74-0d62a8a3b79f",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump_Tap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3a01e25d-132e-44f2-8df8-d953d79c80b7",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump_Tap",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e60a11a8-f4c2-4013-bf77-b13e87138377",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump_Hold",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f30a7efe-17fe-4f1c-9817-8420839cb55e",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump_Hold",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3d058c61-c9c7-475a-95c5-621249f7d525",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump_Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

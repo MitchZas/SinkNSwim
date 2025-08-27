@@ -71,24 +71,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Jump_Tap"",
-                    ""type"": ""Button"",
-                    ""id"": ""8e2c5dda-5157-4c96-ab1a-bab67d4c80b0"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Tap(duration=0.2,pressPoint=0.1)"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Jump_Hold"",
-                    ""type"": ""Button"",
-                    ""id"": ""f3f31820-f305-4538-9133-168ee8eea486"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Hold(duration=0.3,pressPoint=0.3)"",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -265,72 +247,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""79920a79-8336-4be6-99da-41956109e5df"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump_Tap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""adbb7c3d-fba4-4b2a-ae74-0d62a8a3b79f"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump_Tap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3a01e25d-132e-44f2-8df8-d953d79c80b7"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump_Tap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e60a11a8-f4c2-4013-bf77-b13e87138377"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump_Hold"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f30a7efe-17fe-4f1c-9817-8420839cb55e"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump_Hold"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3d058c61-c9c7-475a-95c5-621249f7d525"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump_Hold"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1236,8 +1152,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Bubble_Jump = m_Bubble.FindAction("Jump", throwIfNotFound: true);
         m_Bubble_Previous = m_Bubble.FindAction("Previous", throwIfNotFound: true);
         m_Bubble_Next = m_Bubble.FindAction("Next", throwIfNotFound: true);
-        m_Bubble_Jump_Tap = m_Bubble.FindAction("Jump_Tap", throwIfNotFound: true);
-        m_Bubble_Jump_Hold = m_Bubble.FindAction("Jump_Hold", throwIfNotFound: true);
         // Clam
         m_Clam = asset.FindActionMap("Clam", throwIfNotFound: true);
         m_Clam_Move = m_Clam.FindAction("Move", throwIfNotFound: true);
@@ -1332,8 +1246,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Bubble_Jump;
     private readonly InputAction m_Bubble_Previous;
     private readonly InputAction m_Bubble_Next;
-    private readonly InputAction m_Bubble_Jump_Tap;
-    private readonly InputAction m_Bubble_Jump_Hold;
     public struct BubbleActions
     {
         private @InputSystem_Actions m_Wrapper;
@@ -1343,8 +1255,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Bubble_Jump;
         public InputAction @Previous => m_Wrapper.m_Bubble_Previous;
         public InputAction @Next => m_Wrapper.m_Bubble_Next;
-        public InputAction @Jump_Tap => m_Wrapper.m_Bubble_Jump_Tap;
-        public InputAction @Jump_Hold => m_Wrapper.m_Bubble_Jump_Hold;
         public InputActionMap Get() { return m_Wrapper.m_Bubble; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1369,12 +1279,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Next.started += instance.OnNext;
             @Next.performed += instance.OnNext;
             @Next.canceled += instance.OnNext;
-            @Jump_Tap.started += instance.OnJump_Tap;
-            @Jump_Tap.performed += instance.OnJump_Tap;
-            @Jump_Tap.canceled += instance.OnJump_Tap;
-            @Jump_Hold.started += instance.OnJump_Hold;
-            @Jump_Hold.performed += instance.OnJump_Hold;
-            @Jump_Hold.canceled += instance.OnJump_Hold;
         }
 
         private void UnregisterCallbacks(IBubbleActions instance)
@@ -1394,12 +1298,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Next.started -= instance.OnNext;
             @Next.performed -= instance.OnNext;
             @Next.canceled -= instance.OnNext;
-            @Jump_Tap.started -= instance.OnJump_Tap;
-            @Jump_Tap.performed -= instance.OnJump_Tap;
-            @Jump_Tap.canceled -= instance.OnJump_Tap;
-            @Jump_Hold.started -= instance.OnJump_Hold;
-            @Jump_Hold.performed -= instance.OnJump_Hold;
-            @Jump_Hold.canceled -= instance.OnJump_Hold;
         }
 
         public void RemoveCallbacks(IBubbleActions instance)
@@ -1681,8 +1579,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnPrevious(InputAction.CallbackContext context);
         void OnNext(InputAction.CallbackContext context);
-        void OnJump_Tap(InputAction.CallbackContext context);
-        void OnJump_Hold(InputAction.CallbackContext context);
     }
     public interface IClamActions
     {
