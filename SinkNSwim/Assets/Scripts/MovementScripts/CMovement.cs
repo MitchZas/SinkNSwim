@@ -18,7 +18,6 @@ public class CMovement : MonoBehaviour
 
     [Header("Upward Movement Settings")]
     [SerializeField] private float upStrength = 20f;
-    //[SerializeField] PlayerInput clamPlayerInput;
     private float distance;
 
     [Header("Jump Cooldown")]
@@ -30,6 +29,10 @@ public class CMovement : MonoBehaviour
     public Vector2 boxSize;
     public float castDistance;
     public LayerMask groundLayer;
+
+    [Header("Audio")]
+    [SerializeField] ClamAudio clamAudioscript;
+    private bool wasGrounded = true;
 
     #region UNITY ESSENTIALS    
     void Start()
@@ -86,8 +89,11 @@ public class CMovement : MonoBehaviour
     {
         canMoveHorizontal = true;
 
+
         if (context.performed)
         {
+            clamAudioscript.ClamMoveSFX();
+
             if (Time.time < nextJumpTime) return;
 
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, upStrength);
@@ -127,4 +133,23 @@ public class CMovement : MonoBehaviour
         canJump = true;  // allow jumping again
     }
     #endregion
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            if (!wasGrounded) // only play if we weren't already grounded
+            {
+                clamAudioscript.ClamHitSandSFX();
+            }
+            wasGrounded = true; // now we're grounded
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            wasGrounded = false; // left the ground
+        }
+    }
 }

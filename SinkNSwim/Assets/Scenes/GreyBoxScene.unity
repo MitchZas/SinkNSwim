@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &181445227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181445228}
+  m_Layer: 0
+  m_Name: ---- COLLECTIBLES -----
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &181445228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181445227}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422041539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1059,37 @@ MonoBehaviour:
   m_DefaultActionMap: Clam
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &812757512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 812757513}
+  m_Layer: 0
+  m_Name: ---- UI -----
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &812757513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812757512}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1024661825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2233,7 +2295,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClickAudio: {fileID: 0}
   clamMovementScript: {fileID: 736311735}
-  bubble: {fileID: 0}
   clam: {fileID: 0}
   cam: {fileID: 1224811031}
   clamTarget: {fileID: 736311734}
@@ -3049,12 +3110,14 @@ SceneRoots:
   - {fileID: 1699639492}
   - {fileID: 534325523}
   - {fileID: 736311734}
-  - {fileID: 1792921389}
-  - {fileID: 2075217024}
+  - {fileID: 181445228}
   - {fileID: 534427342}
-  - {fileID: 1293373736}
   - {fileID: 422041541}
   - {fileID: 1095804090}
   - {fileID: 1189554436}
   - {fileID: 1939328356}
+  - {fileID: 812757513}
+  - {fileID: 2075217024}
+  - {fileID: 1792921389}
+  - {fileID: 1293373736}
   - {fileID: 1965241458}
