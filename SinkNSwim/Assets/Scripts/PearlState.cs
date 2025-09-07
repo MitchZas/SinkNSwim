@@ -12,8 +12,7 @@ public class PearlState : MonoBehaviour
     {
         if (Player)
         {
-            //timerScript.StartTimer();
-            //Destroy(Pearl);
+            timerScript.StartTimer();
             isHeld = true;
         }
     }

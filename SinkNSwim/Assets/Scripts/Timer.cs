@@ -15,15 +15,15 @@ public class Timer : MonoBehaviour
     {
         timerTextCanvas.enabled = false;
     }
-    //void Update()
-    //{
-    //    if (pearlScrpt.isHeld == true)
-    //    {
-    //        StartTimer();
-    //        TimerColorChange();
-    //        HandGrab();
-    //    }
-    //}
+    void Update()
+    {
+        if (pearlScrpt.isHeld == true)
+        {
+            StartTimer();
+            TimerColorChange();
+            HandGrab();
+        }
+    }
     public void StartTimer()
     {
         timerTextCanvas.enabled = true;
