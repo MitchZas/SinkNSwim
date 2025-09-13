@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HandSpawnerScript : MonoBehaviour
@@ -5,9 +6,10 @@ public class HandSpawnerScript : MonoBehaviour
     [SerializeField] GameObject Hand;
     [SerializeField] float spawnRate;
     private float timer = 0;
-    [SerializeField] Transform clamTransform;
+    [SerializeField] public Transform clamTransform;
     [SerializeField] float xOffset;
-    
+    [SerializeField] HandMoveScript HandMoveScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

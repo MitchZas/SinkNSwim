@@ -1276,7 +1276,7 @@ Transform:
   m_GameObject: {fileID: 1159408504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.34, y: 10.06, z: -0.240162}
+  m_LocalPosition: {x: 5.73, y: 9.85, z: -0.240162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1298,6 +1298,7 @@ MonoBehaviour:
   spawnRate: 4
   clamTransform: {fileID: 736311734}
   xOffset: 10
+  HandMoveScript: {fileID: 0}
 --- !u!1 &1189554432
 GameObject:
   m_ObjectHideFlags: 0
