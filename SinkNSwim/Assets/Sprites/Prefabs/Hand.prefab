@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  HandSpawnerScript: {fileID: 0}
 --- !u!114 &853930198578712051
 MonoBehaviour:
   m_ObjectHideFlags: 0
