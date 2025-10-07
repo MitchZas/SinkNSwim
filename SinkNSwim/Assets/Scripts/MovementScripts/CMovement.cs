@@ -30,8 +30,8 @@ public class CMovement : MonoBehaviour
     public float castDistance;
     public LayerMask groundLayer;
 
-    [Header("Audio")]
-    [SerializeField] ClamAudio clamAudioscript;
+    //[Header("Audio")]
+    //[SerializeField] ClamAudio clamAudioscript;
     private bool wasGrounded = true;
 
     #region UNITY ESSENTIALS    
@@ -92,7 +92,7 @@ public class CMovement : MonoBehaviour
 
         if (context.performed)
         {
-            clamAudioscript.ClamMoveSFX();
+            //clamAudioscript.ClamMoveSFX();
 
             if (Time.time < nextJumpTime) return;
 
@@ -140,7 +140,7 @@ public class CMovement : MonoBehaviour
         {
             if (!wasGrounded) // only play if we weren't already grounded
             {
-                clamAudioscript.ClamHitSandSFX();
+                //clamAudioscript.ClamHitSandSFX();
             }
             wasGrounded = true; // now we're grounded
         }
