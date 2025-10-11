@@ -1027,8 +1027,8 @@ MonoBehaviour:
   clamSprite: {fileID: 473018560}
   clamAnimator: {fileID: 473018566}
   horizontalStrength: 5
-  upStrength: 20
-  jumpCooldown: 0.5
+  upStrength: 25
+  jumpCooldown: 1
   boxSize: {x: 2.19, y: 0.38}
   castDistance: 1.3
   groundLayer:
