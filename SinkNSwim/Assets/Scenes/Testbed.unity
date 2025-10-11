@@ -1025,6 +1025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clamSprite: {fileID: 473018560}
+  clamAnimator: {fileID: 473018566}
   horizontalStrength: 5
   upStrength: 20
   jumpCooldown: 0.5
@@ -2130,15 +2131,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1251543021548996445, guid: 06614b6cecd97294a93069edfdceae88, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.07745047
+      value: 0.055960935
       objectReference: {fileID: 0}
     - target: {fileID: 1251543021548996445, guid: 06614b6cecd97294a93069edfdceae88, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.07745047
+      value: 0.055960935
       objectReference: {fileID: 0}
     - target: {fileID: 1251543021548996445, guid: 06614b6cecd97294a93069edfdceae88, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.07745047
+      value: 0.055960935
       objectReference: {fileID: 0}
     - target: {fileID: 1251543021548996445, guid: 06614b6cecd97294a93069edfdceae88, type: 3}
       propertyPath: m_LocalPosition.x

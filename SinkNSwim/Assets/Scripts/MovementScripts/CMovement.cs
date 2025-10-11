@@ -8,6 +8,7 @@ public class CMovement : MonoBehaviour
 {
     [Header("Clam Components")]
     [SerializeField] SpriteRenderer clamSprite;
+    [SerializeField] private Animator clamAnimator;
     private InputSystem_Actions clamControls;
     private Rigidbody2D rb;
 
@@ -63,11 +64,13 @@ public class CMovement : MonoBehaviour
     {
         if(Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, castDistance, groundLayer))
         {
+            clamAnimator.SetBool("isJumping", false);
             Debug.Log("Ground hit");
             return true;
         }
         else
         {
+            clamAnimator.SetBool("isJumping", true);
             Debug.Log("Ground missed");
             return false;
         }
@@ -100,11 +103,14 @@ public class CMovement : MonoBehaviour
 
             nextJumpTime = Time.time + jumpCooldown;
             return;
+
         }
         if (context.canceled)
         {
             if (rb.linearVelocity.y > 0f)
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+            
+            //clamAnimator.SetBool("isJumping", false);
         }
     }
     void HoriontalMovement()
