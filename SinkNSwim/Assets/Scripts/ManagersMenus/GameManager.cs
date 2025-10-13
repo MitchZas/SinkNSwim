@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using Unity.Cinemachine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,11 +15,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject clam;
     [SerializeField] CinemachineCamera cam;
     [SerializeField] Transform clamTarget;
+    [SerializeField] CollectableLogic coinsCollectedScript;
+    [SerializeField] GameObject Collectiable;
+    [SerializeField] TMP_Text coinText;
 
     #region UNITY ESSENTIALS
-    private void Awake()
+    private void Update()
     {
-       
+    
     }
     #endregion
 

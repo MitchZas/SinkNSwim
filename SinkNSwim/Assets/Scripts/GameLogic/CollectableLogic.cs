@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-
 public class CollectableLogic : MonoBehaviour
 {
     [Header("Collectable Components")]
@@ -10,22 +9,25 @@ public class CollectableLogic : MonoBehaviour
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Collectiable;
 
+    public bool isCollected;
+    public int coinsCollected = 0;
+
     //private int CollectibleCount = 0;
 
     void Awake()
     {
         collectableCanvas.enabled = false;
+        isCollected = false;
     }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (Player)
         {
             Collectiable.SetActive(false);
-            //Destroy(this.gameObject);
+            isCollected = true;
             collectableCanvas.enabled = true;
-            Debug.Log("Other Collider:" + collider.name);
-            //CollectibleCount++; 
+            coinsCollected++;
+            Debug.Log(coinsCollected);
         }
     }
 }
