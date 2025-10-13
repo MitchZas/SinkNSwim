@@ -1,33 +1,33 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class CollectableLogic : MonoBehaviour
 {
     [Header("Collectable Components")]
-    [SerializeField] Canvas collectableCanvas;
-    [SerializeField] GameObject Player;
-    [SerializeField] GameObject Collectiable;
+    [SerializeField] GameObject coinTextPanel;
+    [SerializeField] GameObject coinImagePanel;
+    [SerializeField] GameObject Coin;
 
-    public bool isCollected;
+    public TMP_Text coinText;
     public int coinsCollected = 0;
-
-    //private int CollectibleCount = 0;
 
     void Awake()
     {
-        collectableCanvas.enabled = false;
-        isCollected = false;
+        coinTextPanel.SetActive(false);
+        coinImagePanel.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (Player)
+        if (collider.gameObject.CompareTag("Collect"))
         {
-            Collectiable.SetActive(false);
-            isCollected = true;
-            collectableCanvas.enabled = true;
+            coinTextPanel.SetActive(true);
+            coinImagePanel.SetActive(true);
             coinsCollected++;
+            coinText.text = coinsCollected.ToString();
             Debug.Log(coinsCollected);
+            Destroy(collider.gameObject);
         }
     }
 }
